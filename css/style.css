@@ -8,7 +8,7 @@ body{
 */
 
 body{
-    background-image: url('img/bg_jp.jpg');
+    background-image: url('../img/bg_jp.jpg');
     background-position: center;
     background-size:cover;
     text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
