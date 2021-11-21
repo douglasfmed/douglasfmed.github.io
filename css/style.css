@@ -1,14 +1,12 @@
-/*
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
-
-body{
-    font-family: 'Fira Sans', sans-serif;
-    background-color: #313D4C;
-}
-*/
-
-body{
+.body_inicial{
     background-image: url('../img/bg_jp.jpg');
+    background-position: center;
+    background-size:cover;
+    text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+}
+
+.body_paginas{
     background-position: center;
     background-size:cover;
     text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
@@ -28,4 +26,15 @@ body{
     background-color: #ccc;
 }
 
+.cover-container {
+    max-width: 80%;
+}
+
+.cover-container header h3{
+    text-shadow: 2px 2px 3px black;
+}
+
+#home{
+    text-shadow: 2px 2px 3px black;
+}
 
