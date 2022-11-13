@@ -13,6 +13,7 @@ html {
     min-height: 100%;
     min-height: 100vh;
     display: flex;
+    padding-top: 75px;
     align-items: center;
 }
 
@@ -70,14 +71,39 @@ html {
     height: 300px;
 }
 
+.cabecalho_pagina span{
+    font-size: 70px; 
+    font-weight: 500;
+}
+
+@media (max-width: 500px){
+    .cabecalho_pagina span{
+        font-size: 50px; 
+        font-weight: 500;
+    }
+    .titulo_contato{
+        font-size: 18px;
+    }
+    .btn_down_home{
+        display: block;
+    }
+}
+
+@media (min-width: 768px){
+    .btn_down_home{
+        display: none;
+    }
+}
+
 /* Personalizando a scrollbar */
 ::-webkit-scrollbar {
     background-color: #5b5b5b;
-    width: 15px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: #232a31;
+    border-radius: 8px;
 }
 
 .content_center {
@@ -99,7 +125,7 @@ html {
     color: #fff;
     padding: 15px;
     text-decoration: none;
-    border-radius: 50%;
+    border-radius: 10%;
 }
 
 .btn_topo:hover {
