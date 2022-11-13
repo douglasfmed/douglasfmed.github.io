@@ -1,0 +1,60 @@
+/* https://www.youtube.com/watch?v=TcYSRI1JFQE */
+
+.timeline-area{
+    margin: 50px auto;
+    width: 100%;
+    border-left: 2px solid #ccc;
+    padding: 0 20px 0 30px;
+}
+
+.timeline-area div{
+    background-color: #fff;
+    padding: 20px 25px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    line-height: 1.7;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.timeline-area div:after{
+    content: '';
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #666;
+    border: 3px solid #ddd;
+    position: absolute;
+    top: 20px;
+    left: -40px;
+}
+
+.timeline-area div:before{
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent #ddd transparent transparent;
+    border-width: 8px;
+    position: absolute;
+    left: -17px;
+}
+
+.timeline-area h2{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.timeline-area h3{
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.timeline-area h4{
+    font-style: italic;
+    font-size: 14px;
+}
+
+

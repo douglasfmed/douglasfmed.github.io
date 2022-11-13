@@ -1,31 +1,106 @@
-/*
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
-
-body{
-    font-family: 'Fira Sans', sans-serif;
-    background-color: #313D4C;
-}
-*/
-
-body{
-    background-image: url('../img/bg_jp.jpg');
-    background-position: center;
-    background-size:cover;
-    text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
-    box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+body {
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    background-color: #fcfbff;
 }
 
-.btn-secondary{
-    color: #333;
-    background-color: #fff;
-    text-shadow: none;
+html {
+    scroll-behavior: smooth;
+}
+
+.vertical-center {
+    min-height: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.bg_home {
+    background-image: url('../img/bg_home.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0px 70px;
+}
+
+.cabecalho {
+    background-color: #232a31;
+    color: #fff;
+    font-weight: normal;
+    /*min-height: 80px; */
+    font-size: 14px;
+    box-shadow: 0px 2px 10px 0 #000;
+}
+
+.item_menu_cabecalho {
+    margin-top: 5px;
+}
+
+.b-example-divider {
+    height: 1rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.home-img img {
+    animation: float 5s ease-in-out infinite;
+    box-shadow: 0 10px 10px #000;
+    border-radius: 50%;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.cabecalho_pagina {
+    background-image: url('../img/capa_linkedin.jpg');
+    background-size: auto 56%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 300px;
+}
+
+/* Personalizando a scrollbar */
+::-webkit-scrollbar {
+    background-color: #5b5b5b;
+    width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #232a31;
+}
+
+.content_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-title {
     font-weight: bold;
+    margin: 0;
 }
 
-.btn-secondary:focus,
-.btn-secondary:hover{
-    color: #333;
-    background-color: #ccc;
+.btn_topo {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    background-color: #48505e;
+    color: #fff;
+    padding: 15px;
+    text-decoration: none;
+    border-radius: 50%;
 }
 
-
+.btn_topo:hover {
+    background-color: #48505e;
+    color: #999;
+}
