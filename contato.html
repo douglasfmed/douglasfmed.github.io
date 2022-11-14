@@ -63,13 +63,13 @@
                             <a class="nav-link" aria-current="page" href="construcao.html">Projetos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="construcao.html">Publicações</a>
+                            <a class="nav-link" aria-current="page" href="publicacoes.html">Publicações</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="contato.html">Contato</a>
                         </li>
                     </ul>
-                    <a class="btn btn_cabecalho btn-light" href="#">
+                    <a class="btn btn_cabecalho btn-light" data-bs-toggle="modal" data-bs-target="#aviso">
                         <i class="fab fa-github"></i> Github
                     </a>
                 </div>
@@ -105,7 +105,7 @@
 
                     <a href="https://www.linkedin.com/in/douglasfmedeiros/" target="_blank"
                         class="btn btn-outline-secondary"><i class="fab fa-linkedin"></i></a>
-                    <button class="btn btn-outline-secondary" type="button"><i class="fab fa-github"></i></button>
+                    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#aviso"><i class="fab fa-github"></i></button>
                     <a href="http://lattes.cnpq.br/6853624493343497" target="_blank"
                         class="btn btn-outline-secondary"><img src="img/logo_lattes.png" height="18px;"/></a>
                         <a href="https://orcid.org/0000-0002-4424-3288" target="_blank"
@@ -120,7 +120,23 @@
         </div>
     </main>
 
-    <a class="btn_topo" href="#"><i class="fas fa-chevron-up"></i></a>
+    <!-- Modal aviso -->
+    <div class="modal fade" id="aviso" tabindex="-1" aria-labelledby="avisoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark" id="avisoLabel"><i class="fa fa-cog"></i> Ops, em breve...</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-dark text-center">
+                    Ainda não é possível visitar o meu repositório no Github, estou organizando todos os códigos antes de compartilhar aqui no site.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 

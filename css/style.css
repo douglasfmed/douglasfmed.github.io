@@ -87,6 +87,26 @@ html {
     .btn_down_home{
         display: block;
     }
+
+    #label_filtro_periodicos,
+    #label_filtro_congressos,
+    #label_filtro_1autor,
+    #label_filtro_coautor{
+        font-size: 12px;
+    }
+
+    .titulo_pub{
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 370px){
+    #label_filtro_periodicos,
+    #label_filtro_congressos,
+    #label_filtro_1autor,
+    #label_filtro_coautor{
+        font-size: 10px;
+    }
 }
 
 @media (min-width: 768px){

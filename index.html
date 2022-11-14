@@ -62,13 +62,13 @@
                             <a class="nav-link" aria-current="page" href="construcao.html">Projetos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="construcao.html">Publicações</a>
+                            <a class="nav-link" aria-current="page" href="publicacoes.html">Publicações</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="contato.html">Contato</a>
                         </li>
                     </ul>
-                    <a class="btn btn_cabecalho btn-light" href="#">
+                    <a class="btn btn_cabecalho btn-light" data-bs-toggle="modal" data-bs-target="#aviso">
                         <i class="fab fa-github"></i> Github
                     </a>
                 </div>
@@ -98,22 +98,40 @@
 
             <div class="col">
                 <div class="px-4 py-5 text-center text-light border-top border-3">
-                    <h1 class="display-4 fw-bold" style="text-shadow: 2px 1px 5px #000;">Olá, me chamo Douglas Medeiros
+                    <h1 class="display-4 fw-bold" style="text-shadow: 2px 1px 5px #000;">Olá, eu sou Douglas Medeiros
                     </h1>
                     <div class="col-lg-10 mx-auto">
                         <p class="lead mb-4" style="text-shadow: 2px 1px 5px #000;">Este é o meu site pessoal, aqui você
                             encontrará algumas informações sobre a minha formação acadêmica, experiência profissional e
                             também o meu portfólio de projetos</p>
                         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                            <button type="button"
-                                class="btn btn-outline-secondary btn-lg px-4 gap-3 text-light">Contato</button>
-                            <button type="button"
-                                class="btn btn-outline-secondary btn-lg px-4 text-light">Linkedin</button>
+                            <a href="contato.html"
+                                class="btn btn-outline-secondary btn-lg px-4 gap-3 text-light">Contato</a>
+                            <a href="https://www.linkedin.com/in/douglasfmedeiros/" target="_blank"
+                                class="btn btn-outline-secondary btn-lg px-4 text-light">Linkedin</a>
                         </div>
                     </div>
                 </div>
             </div>
 
+        </div>
+    </div>
+
+    <!-- Modal aviso -->
+    <div class="modal fade" id="aviso" tabindex="-1" aria-labelledby="avisoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark" id="avisoLabel"><i class="fa fa-cog"></i> Ops, em breve...</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-dark text-center">
+                    Ainda não é possível visitar o meu repositório no Github, estou organizando todos os códigos antes de compartilhar aqui no site.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
         </div>
     </div>
 

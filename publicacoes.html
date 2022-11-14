@@ -63,13 +63,13 @@
                             <a class="nav-link" aria-current="page" href="construcao.html">Projetos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="construcao.html">Publicações</a>
+                            <a class="nav-link active" aria-current="page" href="publicacoes.html">Publicações</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="contato.html">Contato</a>
+                            <a class="nav-link" aria-current="page" href="contato.html">Contato</a>
                         </li>
                     </ul>
-                    <a class="btn btn_cabecalho btn-light" href="#">
+                    <a class="btn btn_cabecalho btn-light" data-bs-toggle="modal" data-bs-target="#aviso">
                         <i class="fab fa-github"></i> Github
                     </a>
                 </div>
@@ -92,68 +92,456 @@
             <br>
 
             <a href="https://repositorio.ufpb.br/jspui/handle/123456789/21021" target="_blank"
-                class="btn btn-outline-secondary"><i class="fas fa-external-link-alt"></i> Dissertação de mestrado</a>
-            <button type="button" class="btn btn-outline-secondary"><i class="fas fa-external-link-alt"></i>
-                TCC</button>
+                class="btn btn-outline-secondary"><i class="fas fa-external-link-alt"></i> Dissertação de
+                mestrado</a>
+            <a href="https://drive.google.com/file/d/1aiuPkxuI-eq04TLsDAi1799dJrN97EGZ/view?usp=share_link"
+                target="_blank" class="btn btn-outline-secondary"><i class="fas fa-external-link-alt"></i>
+                TCC</a>
 
             <br><br>
 
-            <div class="card text-bg-secondary mb-3">
+            <p>
+                <a class="btn btn-dark" data-bs-toggle="collapse" href="#filtros" role="button" aria-expanded="false"
+                    aria-controls="filtros">
+                    <i class="fas fa-filter"></i> Filtrar publicações
+                </a>
+            </p>
+
+            <div class="collapse" id="filtros">
+                <div class="card card-body">
+                    Escolha o tipo de filtro que deseja aplicar:
+                    <br><br>
+
+                    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                        <input type="checkbox" class="btn-check" id="filtro_periodicos" autocomplete="off">
+                        <label id="label_filtro_periodicos" class="btn btn-outline-dark" for="filtro_periodicos">Periódicos</label>
+
+                        <input type="checkbox" class="btn-check" id="filtro_congressos" autocomplete="off">
+                        <label id="label_filtro_congressos" class="btn btn-outline-dark" for="filtro_congressos">Anais de congressos</label>
+
+                        <input type="checkbox" class="btn-check" id="filtro_1autor" autocomplete="off">
+                        <label id="label_filtro_1autor" class="btn btn-outline-dark" for="filtro_1autor">1º autor</label>
+
+                        <input type="checkbox" class="btn-check" id="filtro_coautor" autocomplete="off">
+                        <label id="label_filtro_coautor" class="btn btn-outline-dark" for="filtro_coautor">Coautor</label>
+                    </div>
+
+                    <br>
+
+                    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                        <a onclick="filtrar()" class="btn btn-success"><i class="fas fa-check-circle"></i> Aplicar
+                            filtro</a>
+                        <a onclick="remover_filtros()" class="btn btn-danger"><i class="fas fa-times-circle"></i>
+                            Remover
+                            filtros</a>
+                    </div>
+
+                </div>
+                <br>
+            </div>
+
+            <div class="card text-bg-secondary mb-3" id="artigo_1" periodico="sim" primeiro_autor="sim">
                 <div class="card-body">
                     <a href="https://www.mdpi.com/1996-1073/15/19/7382" target="_blank"
                         class="btn btn-sm text-bg-dark btn-outline-secondary" style="display: block; float:right;"><i
                             class="fas fa-external-link-alt"></i></a>
-                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
-                        style="display: block; float:right;">1º autor</button>
-                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
-                        style="display: block; float:right;">Qualis A1</button>
-                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
-                        style="display: block; float:right;">Periódico</button>
 
-                    <span style="font-weight: bold;"><i class="fas fa-file-alt"></i> Energy-Saving Routing Protocols for Smart Cities</span>
+                    <span class="titulo_pub" style="font-weight: bold;"> Energy-Saving Routing Protocols for
+                        Smart Cities</span>
                     <br>
-                    <span style="font-size: 12px;"><i class="fas fa-info-circle"></i> Energies MDPI</span>
+                    <span style="font-size: 12px;"><i class="fas fa-file-alt"></i> Energies MDPI</span>
                     <br>
-                    <span style="font-size: 12px;"><i class="fas fa-clock"></i> 2022</span>
-                </div>                
+                    <span style="font-size: 12px;"><i class="fas fa-calendar-alt"></i> 2022</span>
+
+                    <hr>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Periódico</button>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Qualis A1</button>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">1º autor</button>
+
+                </div>
             </div>
 
-            <div class="card text-bg-secondary mb-3">
+            <div class="card text-bg-secondary mb-3" id="artigo_2" periodico="sim" primeiro_autor="nao">
                 <div class="card-body">
                     <a href="https://jcis.sbrt.org.br/jcis/article/view/745" target="_blank"
                         class="btn btn-sm text-bg-dark btn-outline-secondary" style="display: block; float:right;"><i
                             class="fas fa-external-link-alt"></i></a>
-                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
-                        style="display: block; float:right;">Coautor</button>
-                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
-                        style="display: block; float:right;">Periódico</button>
 
-                    <span><i class="fas fa-file-alt"></i> LoRa System for Monitoring and Facial Recognition</span>
+                    <span class="titulo_pub" style="font-weight: bold;"> LoRa System for Monitoring and Facial Recognition</span>
                     <br>
-                    <span style="font-size: 12px;"><i class="fas fa-info-circle"></i> Journal of Communication and Information Systems (JCIS)</span>
+                    <span style="font-size: 12px;"><i class="fas fa-file-alt"></i> Journal of Communication and
+                        Information Systems (JCIS)</span>
                     <br>
-                    <span style="font-size: 12px;"><i class="fas fa-clock"></i> 2021</span>
-                </div>                
+                    <span style="font-size: 12px;"><i class="fas fa-calendar-alt"></i> 2021</span>
+
+                    <hr>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Periódico</button>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Qualis A4</button>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Coautor</button>
+
+                </div>
             </div>
 
-            <div class="card text-bg-secondary mb-3">
+            <div class="card text-bg-secondary mb-3" id="artigo_3" periodico="nao" primeiro_autor="nao">
                 <div class="card-body">
-                    <a href="https://jcis.sbrt.org.br/jcis/article/view/745" target="_blank"
+                    <a href="https://vb.ftmc.lt/object/elaba:140007610/140007610.pdf#page=106" target="_blank"
                         class="btn btn-sm text-bg-dark btn-outline-secondary" style="display: block; float:right;"><i
                             class="fas fa-external-link-alt"></i></a>
-                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
-                        style="display: block; float:right;">Coautor</button>
-                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
-                        style="display: block; float:right;">Anais de congressos</button>
 
-                    <span><i class="fas fa-file-alt"></i> Calibration of a Low Cost Sensor for PM2.5 using a Reference PM Monitoring Station</span>
+                    <span class="titulo_pub" style="font-weight: bold;"> Calibration of a Low Cost Sensor for PM2.5 using a Reference
+                        PM Monitoring Station</span>
                     <br>
-                    <span style="font-size: 12px;"><i class="fas fa-info-circle"></i> International Conference on Sensors and Electronic Instrumentation Advances (SEIA' 2020)</span>
+                    <span style="font-size: 12px;"><i class="fas fa-file-alt"></i> International Conference on
+                        Sensors and Electronic Instrumentation Advances (SEIA' 2020)</span>
                     <br>
                     <span style="font-size: 12px;"><i class="fas fa-map-marker-alt"></i> Lisboa - Portugal</span>
                     <br>
-                    <span style="font-size: 12px;"><i class="fas fa-clock"></i> 2020</span>
-                </div>                
+                    <span style="font-size: 12px;"><i class="fas fa-calendar-alt"></i> 2020</span>
+
+                    <hr>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Anais de congressos</button>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Coautor</button>
+
+                </div>
+            </div>
+
+            <div class="card text-bg-secondary mb-3" id="artigo_4" periodico="nao" primeiro_autor="sim">
+                <div class="card-body">
+                    <a href="https://iecom.org.br/encom2020/" target="_blank"
+                        class="btn btn-sm text-bg-dark btn-outline-secondary" style="display: block; float:right;"><i
+                            class="fas fa-external-link-alt"></i></a>
+
+                    <span class="titulo_pub" style="font-weight: bold;"> Análise Comparativa entre as Tecnologias LoRa, Zigbee e Wi-Fi
+                        utilizando o simulador Cupcarbon</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-file-alt"></i> X Conferência Nacional em
+                        Comunicações, Redes e Segurança da Informação (ENCOM)</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-map-marker-alt"></i> Natal - Brasil</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-calendar-alt"></i> 2020</span>
+
+                    <hr>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Anais de congressos</button>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">1º autor</button>
+
+                </div>
+            </div>
+
+            <div class="card text-bg-secondary mb-3" id="artigo_5" periodico="nao" primeiro_autor="sim">
+                <div class="card-body">
+                    <a href="https://ieeexplore.ieee.org/abstract/document/9284888/" target="_blank"
+                        class="btn btn-sm text-bg-dark btn-outline-secondary" style="display: block; float:right;"><i
+                            class="fas fa-external-link-alt"></i></a>
+
+                    <span class="titulo_pub" style="font-weight: bold;"> Implementation and Analysis of Routing Protocols for LoRa Wireless
+                        Mesh Networks</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-file-alt"></i> IEEE 11th Annual Information
+                        Technology, Electronics and Mobile Communication Conference (IEMCON)</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-map-marker-alt"></i> Vancouver - Canadá</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-calendar-alt"></i> 2020</span>
+
+                    <hr>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Anais de congressos</button>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">1º autor</button>
+
+                </div>
+            </div>
+
+            <div class="card text-bg-secondary mb-3" id="artigo_6" periodico="nao" primeiro_autor="nao">
+                <div class="card-body">
+                    <a href="https://ieeexplore.ieee.org/abstract/document/8868543/" target="_blank"
+                        class="btn btn-sm text-bg-dark btn-outline-secondary" style="display: block; float:right;"><i
+                            class="fas fa-external-link-alt"></i></a>
+
+                    <span class="titulo_pub" style="font-weight: bold;"> Computation-Time and Mean-Squared-Error Trade-off of Calibration
+                        Curves for Electrical Soil Conductivity Smart Sensor</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-file-alt"></i> 4th International Symposium on
+                        Instrumentation Systems, Circuits and Transducers (INSCIT)</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-map-marker-alt"></i> São Paulo - Brasil</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-calendar-alt"></i> 2019</span>
+
+                    <hr>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Anais de congressos</button>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Coautor</button>
+
+                </div>
+            </div>
+
+            <div class="card text-bg-secondary mb-3" id="artigo_7" periodico="nao" primeiro_autor="nao">
+                <div class="card-body">
+                    <a href="https://ieeexplore.ieee.org/abstract/document/8936206/" target="_blank"
+                        class="btn btn-sm text-bg-dark btn-outline-secondary" style="display: block; float:right;"><i
+                            class="fas fa-external-link-alt"></i></a>
+
+                    <span class="titulo_pub" style="font-weight: bold;"> A Performance Evaluation of Raspberry Pi Zero W Based Gateway
+                        Running MQTT Broker for IoT</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-file-alt"></i> IEEE 10th Annual Information
+                        Technology, Electronics and Mobile Communication Conference (IEMCON)</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-map-marker-alt"></i> Vancouver - Canadá</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-calendar-alt"></i> 2019</span>
+
+                    <hr>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Anais de congressos</button>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Coautor</button>
+
+                </div>
+            </div>
+
+            <div class="card text-bg-secondary mb-3" id="artigo_8" periodico="nao" primeiro_autor="nao">
+                <div class="card-body">
+                    <a href="https://ieeexplore.ieee.org/abstract/document/8936194/" target="_blank"
+                        class="btn btn-sm text-bg-dark btn-outline-secondary" style="display: block; float:right;"><i
+                            class="fas fa-external-link-alt"></i></a>
+
+                    <span class="titulo_pub" style="font-weight: bold;"> An Evaluation of LoRa Communication Range in Urban and Forest
+                        Areas: A Case Study in Brazil and Portugal</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-file-alt"></i> IEEE 10th Annual Information
+                        Technology, Electronics and Mobile Communication Conference (IEMCON)</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-map-marker-alt"></i> Vancouver - Canadá</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-calendar-alt"></i> 2019</span>
+
+                    <hr>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Anais de congressos</button>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Coautor</button>
+
+                </div>
+            </div>
+
+            <div class="card text-bg-secondary mb-3" id="artigo_9" periodico="nao" primeiro_autor="sim">
+                <div class="card-body">
+                    <a href="https://iecom.org.br/encom2019/" target="_blank"
+                        class="btn btn-sm text-bg-dark btn-outline-secondary" style="display: block; float:right;"><i
+                            class="fas fa-external-link-alt"></i></a>
+
+                    <span class="titulo_pub" style="font-weight: bold;"> Avaliação da Modulação LoRa Utilizando Rádio Definido por
+                        Software</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-file-alt"></i> IX Conferência Nacional em
+                        Comunicações, Redes e Segurança (ENCOM)</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-map-marker-alt"></i> Petrolina - Brasil</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-calendar-alt"></i> 2019</span>
+
+                    <hr>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Anais de congressos</button>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">1º autor</button>
+
+                </div>
+            </div>
+
+            <div class="card text-bg-secondary mb-3" id="artigo_10" periodico="nao" primeiro_autor="sim">
+                <div class="card-body">
+                    <a href="http://www.icsc-cities2019.com/EN_index.html" target="_blank"
+                        class="btn btn-sm text-bg-dark btn-outline-secondary" style="display: block; float:right;"><i
+                            class="fas fa-external-link-alt"></i></a>
+
+                    <span class="titulo_pub" style="font-weight: bold;"> Sistema de Monitoramento de Chuvas como Ferramenta para Gestão de
+                        Desastres em Cidades Inteligentes</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-file-alt"></i> II IBERO-AMERICAN CONGRESS OF SMART
+                        CITIES</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-map-marker-alt"></i> Sória - Espanha</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-calendar-alt"></i> 2019</span>
+
+                    <hr>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Anais de congressos</button>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">1º autor</button>
+
+                </div>
+            </div>
+
+            <div class="card text-bg-secondary mb-3" id="artigo_11" periodico="nao" primeiro_autor="nao">
+                <div class="card-body">
+                    <a href="https://ieeexplore.ieee.org/abstract/document/8868567/" target="_blank"
+                        class="btn btn-sm text-bg-dark btn-outline-secondary" style="display: block; float:right;"><i
+                            class="fas fa-external-link-alt"></i></a>
+
+                    <span class="titulo_pub" style="font-weight: bold;"> LoRa Performance Assessment in Dense Urban and Forest Areas for
+                        Environmental Monitoring</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-file-alt"></i> 4th International Symposium on
+                        Instrumentation Systems, Circuits and Transducers (INSCIT)</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-map-marker-alt"></i> São Paulo - Brasil</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-calendar-alt"></i> 2019</span>
+
+                    <hr>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Anais de congressos</button>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Coautor</button>
+
+                </div>
+            </div>
+
+            <div class="card text-bg-secondary mb-3" id="artigo_12" periodico="nao" primeiro_autor="sim">
+                <div class="card-body">
+                    <a href="https://www.researchgate.net/profile/Waslon-Lopes/publication/336000337_Avaliacao_de_Sensoriamento_Espectral_por_Deteccao_de_Energia_para_Diferentes_Modulacoes_Digitais/links/610b3ea81ca20f6f860000ef/Avaliacao-de-Sensoriamento-Espectral-por-Deteccao-de-Energia-para-Diferentes-Modulacoes-Digitais.pdf"
+                        target="_blank" class="btn btn-sm text-bg-dark btn-outline-secondary"
+                        style="display: block; float:right;"><i class="fas fa-external-link-alt"></i></a>
+
+                    <span class="titulo_pub" style="font-weight: bold;"> Avaliação de Sensoriamento Espectral por Detecção de Energia para
+                        Diferentes Modulações Digitais</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-file-alt"></i> XXXVI Simpósio Brasileiro de
+                        Telecomunicações e processamento de sinais (SBrT)</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-map-marker-alt"></i> Campina Grande - Brasil</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-calendar-alt"></i> 2018</span>
+
+                    <hr>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Anais de congressos</button>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">1º autor</button>
+
+                </div>
+            </div>
+
+            <div class="card text-bg-secondary mb-3" id="artigo_13" periodico="nao" primeiro_autor="nao">
+                <div class="card-body">
+                    <a href="https://www.sba.org.br/open_journal_systems/index.php/cba/article/view/476" target="_blank"
+                        class="btn btn-sm text-bg-dark btn-outline-secondary" style="display: block; float:right;"><i
+                            class="fas fa-external-link-alt"></i></a>
+
+                    <span class="titulo_pub" style="font-weight: bold;"> Desenvolvimento de Kit Didático Sustentável Para Ensino de
+                        Automação Industrial</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-file-alt"></i> XXII Congresso Brasileiro de
+                        Automática (CBA)</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-map-marker-alt"></i> João Pessoa - Brasil</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-calendar-alt"></i> 2018</span>
+
+                    <hr>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Anais de congressos</button>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Coautor</button>
+
+                </div>
+            </div>
+
+            <div class="card text-bg-secondary mb-3" id="artigo_14" periodico="nao" primeiro_autor="sim">
+                <div class="card-body">
+                    <a href="https://www.cbens.org.br/" target="_blank"
+                        class="btn btn-sm text-bg-dark btn-outline-secondary" style="display: block; float:right;"><i
+                            class="fas fa-external-link-alt"></i></a>
+
+                    <span class="titulo_pub" style="font-weight: bold;"> Concentração do consumo mundial de energias renováveis</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-file-alt"></i> V Congresso Brasileiro de Energia
+                        Solar (CBENS)</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-map-marker-alt"></i> Recife - Brasil</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-calendar-alt"></i> 2018</span>
+
+                    <hr>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Anais de congressos</button>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">1º autor</button>
+
+                </div>
+            </div>
+
+            <div class="card text-bg-secondary mb-3" id="artigo_15" periodico="nao" primeiro_autor="sim">
+                <div class="card-body">
+                    <a href="https://sistemas.ifba.edu.br/SCRIPTS/viiiconnepi/" target="_blank"
+                        class="btn btn-sm text-bg-dark btn-outline-secondary" style="display: block; float:right;"><i
+                            class="fas fa-external-link-alt"></i></a>
+
+                    <span class="titulo_pub" style="font-weight: bold;"> Automação do Processo de Fabricação de Sabão a partir de Óleo de
+                        Cozinha Usado</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-file-alt"></i> VIII CONNEPI - Congresso norte
+                        nordeste de pesquisa e inovação</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-map-marker-alt"></i> Salvador - Brasil</span>
+                    <br>
+                    <span style="font-size: 12px;"><i class="fas fa-calendar-alt"></i> 2013</span>
+
+                    <hr>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">Anais de congressos</button>
+
+                    <button type="button" class="btn btn-sm text-bg-dark btn-outline-secondary disabled"
+                        style="display: block; float:left;">1º autor</button>
+
+                </div>
             </div>
 
             <br><br>
@@ -161,7 +549,132 @@
         </div>
     </main>
 
-    <a class="btn_topo" href="#"><i class="fas fa-chevron-up"></i></a>
+    <a class="btn_topo" style="background-color: rgb(55, 54, 54);" href="#"><i class="fas fa-chevron-up"></i></a>
+
+    <!-- Modal aviso -->
+    <div class="modal fade" id="aviso" tabindex="-1" aria-labelledby="avisoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark" id="avisoLabel"><i class="fa fa-cog"></i> Ops, em breve...</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-dark text-center">
+                    Ainda não é possível visitar o meu repositório no Github, estou organizando todos os códigos antes de compartilhar aqui no site.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filtrar() {
+            var periodicos = document.getElementById('filtro_periodicos').checked;
+            var congressos = document.getElementById('filtro_congressos').checked;
+            var primeiro_autor = document.getElementById('filtro_1autor').checked;
+            var coautor = document.getElementById('filtro_coautor').checked;
+
+            // Esconder todo mundo aqui
+            for (var i = 1; i <= 15; i++) {
+                document.getElementById('artigo_' + i.toString()).style.display = 'none';
+            }
+
+            if (periodicos == false && congressos == false && primeiro_autor == false && coautor == false) {
+                alert('ERRO: Você deve selecionar ao menos um filtro antes de aplicar...');
+            } else {
+
+                for (var i = 1; i <= 15; i++) {
+                    artigo = document.getElementById('artigo_' + i.toString());
+                    verifica_periodico = artigo.getAttribute('periodico');
+                    verifica_autoria = artigo.getAttribute('primeiro_autor');
+
+                    if (periodicos == false && congressos == false && primeiro_autor == false && coautor == false) {
+                        alert('ERRO: Você deve selecionar ao menos um filtro antes de aplicar...');
+                    } else if (periodicos == false && congressos == false && primeiro_autor == false && coautor ==
+                        true) {
+                        if (verifica_autoria == 'nao') {
+                            artigo.style.display = 'flex';
+                        }
+                    } else if (periodicos == false && congressos == false && primeiro_autor == true && coautor ==
+                        false) {
+                        if (verifica_autoria == 'sim') {
+                            artigo.style.display = 'flex';
+                        }
+                    } else if (periodicos == false && congressos == false && primeiro_autor == true && coautor ==
+                        true) {
+                        artigo.style.display = 'flex';
+                    } else if (periodicos == false && congressos == true && primeiro_autor == false && coautor ==
+                        false) {
+                        if (verifica_periodico == 'nao') {
+                            artigo.style.display = 'flex';
+                        }
+                    } else if (periodicos == false && congressos == true && primeiro_autor == false && coautor ==
+                        true) {
+                        if (verifica_periodico == 'nao' && verifica_autoria == 'nao') {
+                            artigo.style.display = 'flex';
+                        }
+                    } else if (periodicos == false && congressos == true && primeiro_autor == true && coautor ==
+                        false) {
+                        if (verifica_periodico == 'nao' && verifica_autoria == 'sim') {
+                            artigo.style.display = 'flex';
+                        }
+                    } else if (periodicos == false && congressos == true && primeiro_autor == true && coautor == true) {
+                        if (verifica_periodico == 'nao') {
+                            artigo.style.display = 'flex';
+                        }
+                    } else if (periodicos == true && congressos == false && primeiro_autor == false && coautor ==
+                        false) {
+                        if (verifica_periodico == 'sim') {
+                            artigo.style.display = 'flex';
+                        }
+                    } else if (periodicos == true && congressos == false && primeiro_autor == false && coautor ==
+                        true) {
+                        if (verifica_periodico == 'sim' && verifica_autoria == 'nao') {
+                            artigo.style.display = 'flex';
+                        }
+                    } else if (periodicos == true && congressos == false && primeiro_autor == true && coautor ==
+                        false) {
+                        if (verifica_periodico == 'sim' && verifica_autoria == 'sim') {
+                            artigo.style.display = 'flex';
+                        }
+                    } else if (periodicos == true && congressos == false && primeiro_autor == true && coautor == true) {
+                        if (verifica_periodico == 'sim') {
+                            artigo.style.display = 'flex';
+                        }
+                    } else if (periodicos == true && congressos == true && primeiro_autor == false && coautor ==
+                        false) {
+                        artigo.style.display = 'flex';
+                    } else if (periodicos == true && congressos == true && primeiro_autor == false && coautor == true) {
+                        if (verifica_autoria == 'nao') {
+                            artigo.style.display = 'flex';
+                        }
+                    } else if (periodicos == true && congressos == true && primeiro_autor == true && coautor == false) {
+                        if (verifica_autoria == 'sim') {
+                            artigo.style.display = 'flex';
+                        }
+                    } else if (periodicos == true && congressos == true && primeiro_autor == true && coautor == true) {
+                        artigo.style.display = 'flex';
+                    }
+
+                }
+            }
+
+        }
+
+        function remover_filtros() {
+            // Esconder todo mundo aqui
+            for (var i = 1; i <= 15; i++) {
+                document.getElementById('artigo_' + i.toString()).style.display = 'flex';
+            }
+
+            document.getElementById('filtro_periodicos').checked = false;
+            document.getElementById('filtro_congressos').checked = false;
+            document.getElementById('filtro_1autor').checked = false;
+            document.getElementById('filtro_coautor').checked = false;
+        }
+    </script>
 
 </body>
 
